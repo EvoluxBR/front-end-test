@@ -68,6 +68,7 @@ How many numbers will be returned at once. defaults to 100.
 - Use Redux to manage the application state.
 - The UI should not allow the user to perform actions that wouldn't work. I.E.: The 'previous page' button should be disabled if the page being displayed is the first one.
 - The UI should not allow the user to perform actions that would cancel an ongoing API request.
+- You can use any CSS method/framework you want.
 
 ## What will be evaluted in the test
 
@@ -75,4 +76,4 @@ How many numbers will be returned at once. defaults to 100.
 - Your ability to mock API endpoints
 - Your ability to solve problems with logic (by implementing the dynamic data mock)
 - Your ability to sync the UI state with the application state
-- Your general ability with CSS.
+- Your ability to create UIs with a at minimum aesthetic appeal.
