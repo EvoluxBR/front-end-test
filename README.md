@@ -40,7 +40,8 @@ How many numbers will be returned at once. defaults to 100.
 {
   "meta": {
     "page": 1,
-    "perPage": 3
+    "perPage": 3,
+    "totalPages": 334
   },
   "data": [
     {
