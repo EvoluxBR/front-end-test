@@ -10,7 +10,7 @@ The frontend stack the company uses is:
 
 ## The first task, mocking the API endpoint
 
-- Create a /numbers endpoint in the webpack-dev-server that returns available phone numbers.
+- Create a /numbers endpoint in the webpack-dev-server that return available phone numbers. ([click here](https://webpack.js.org/configuration/dev-server/#devserver-before) to learn how to mock endpoints in webpack-dev-server)
 - The carrier currently has 1000 (one thousand) available phone numbers. They are all the numbers in the range of '555 000 000' to '555 000 999'.
 - Each number has a cost value. the cost value varies from $1.00 to $1.99;
 - The formula for how much a number will cost is adding its last two digits to the starting price of $1.00. IE.: the number '555 000 342' costs $1.42.
