@@ -45,15 +45,15 @@ How many numbers will be returned at once. defaults to 100.
   },
   "data": [
     {
-      "number": 555 000 000,
+      "number": 555000000,
       "cost": 1
     },
     {
-      "number": 555 000 001,
+      "number": 555000001,
       "cost": 1.01
     },
     {
-      "number": 555 000 002,
+      "number": 555000002,
       "cost": 1.02
     }
   ]
