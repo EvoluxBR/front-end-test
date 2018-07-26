@@ -11,7 +11,7 @@ The frontend stack the company uses is:
 ## The first task, mocking the API endpoint
 
 - Create a /numbers endpoint in the webpack-dev-server that returns available phone numbers.
-- The carrier currently has 1000 (one thousand) available phone numbers. they are all the numbers in the range of '555 000 000' to '555 000 999'.
+- The carrier currently has 1000 (one thousand) available phone numbers. They are all the numbers in the range of '555 000 000' to '555 000 999'.
 - Each number has a cost value. the cost value varies from $1.00 to $1.99;
 - The formula for how much a number will cost is adding its last two digits to the starting price of $1.00. IE.: the number '555 000 342' costs $1.42.
 
@@ -62,12 +62,16 @@ How many numbers will be returned at once. defaults to 100.
 ## The second task, displaying the numbers in the UI
 
 - Use React to display the list (both the phone number and their cost).
+- The default amount of numbers per page will be 100. You decide if the user gets to change this value or not.
+- The data is paginated. the user needs to be able to navigate between pages (going to the next and to the previous is enough).
 - Use Redux to manage the application state.
+- The UI should not allow the user to perform actions that wouldn't work. I.E.: The 'previous page' button should be disabled if the page being displayed is the first one.
+- The UI should not allow the user to perform actions that would cancel an ongoing API request.
 
 ## What will be evaluted in the test
 
 - Your ability to write modern and idiomatic Javascript
 - Your ability to mock API endpoints
 - Your ability to solve problems with logic (by implementing the dynamic data mock)
-- Your ability to sync the UI state with the application state (what happens to the UI when the data is being fetched?)
+- Your ability to sync the UI state with the application state
 - Your general ability with CSS.
