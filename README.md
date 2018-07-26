@@ -39,7 +39,7 @@ How many numbers will be returned at once. defaults to 100.
 ```json
 {
   "meta": {
-    "page:" 1,
+    "page": 1,
     "perPage": 3
   },
   "data": [
