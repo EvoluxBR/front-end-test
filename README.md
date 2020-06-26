@@ -1,79 +1,88 @@
-# Evolux Frontend Developer test
+# Telecom Carrier, the frontend project.
 
-A cloud telecom carrier needs a webapp to display all of its available phone numbers for purchase. The backend developers from the company will provide an API endpoint that delivers a paginated list of availabe numbers. As usual in the development world, said API is still bein crafted and you, the frontend developer, will mock this API endpoint to avoid getting blocked. After the mocks are done, the interface can fetch from it and display the numbers available for purchase.
+A cloud telecom carrier needs a web application to control the available phone numbers for purchase.
 
-The frontend stack the company uses is:
+Prepared with ❤️ by [Evolux Sistemas](https://www.evolux.net.br/) team.
 
-- Webpack (with Webpack Dev Server for local development and API mocking)
-- React
-- Redux
+### Briefing
 
-## The first task, mocking the API endpoint
+The basic user story is:
 
-- Create a /numbers endpoint in the webpack-dev-server that return available phone numbers. ([click here](https://webpack.js.org/configuration/dev-server/#devserver-before) to learn how to mock endpoints in webpack-dev-server)
-- The carrier currently has 1000 (one thousand) available phone numbers. They are all the numbers in the range of '555 000 000' to '555 000 999'.
-- Each number has a cost value. the cost value varies from $1.00 to $1.99;
-- The formula for how much a number will cost is adding its last two digits to the starting price of $1.00. IE.: the number '555 000 342' costs $1.42.
+> As salespeople supervisor, I can fully manage the numbers for sale in a table.
 
+For an engineering perspective, consider this is just a CRUD. 👍
 
-The mocked data needs to be generated dynamically depending on the query paramaters values sent. As explained below:
-  - The endpoint accepts two query parameters: 'page' and 'perPage';
-  - if a request is made with page: 1 and perPage: 10, the response will contain 10 numbers, from '555 000 000' to '555 000 009'.
-  - if a request is made with page: 10 and perPage: 100, the response will contain 100 numbers, from '555 000 899' to '555 000 999'.
+Backend workmates will provide a RESTful API for it, but they're slowed down.
+You still must work and possibly demonstrate your feature working while the API is still being crafted,
+and your team decided that the client side will mock such API. As a very skilled frontend engineer,
+you're in charge of doing it, while your colleagues are working in other important features.
 
-## The API Spec
-### [GET] /numbers
-Returns a list of all phone numbers available for purchase.
-#### Query Parameters
-##### page [integer]
-The current page to be returned. defaults to 1.
-##### perPage [integer]
-How many numbers will be returned at once. defaults to 100.
+Here's the mandatory frontend stack that must play a major role in your implementation:
 
-#### Request Example
-```
-/numbers?page=1&perPage=3
-```
+- React;
+- Bootstrap;
+- Redux.
 
-#### Response Example
+_Hint_: as a Portuguese speaker, here's also an introductory live coding with this stack: <br/>
+https://www.youtube.com/watch?v=lYy3EUEwLeY
+
+### More technical details
+
+The whole team agreed with a few specs and technical limitations:
+
+- all payloads for requests and responses are JSON;
+- in the beginning, the API will be very slow and take ~2s for some responses;
+- there's an agreement of a data schema;
+- there will be around 800 available numbers for management, consider any pagination technique.
+
+About the schema, here's a [DID `number`](https://www.3cx.com/pbx/did/) entity example for now:
+
 ```json
 {
-  "meta": {
-    "page": 1,
-    "perPage": 3,
-    "totalPages": 334
-  },
-  "data": [
-    {
-      "number": 555000000,
-      "cost": 1
-    },
-    {
-      "number": 555000001,
-      "cost": 1.01
-    },
-    {
-      "number": 555000002,
-      "cost": 1.02
-    }
-  ]
+  "id": 42,
+  "value": "+55 84 91234-4321",
+  "monthyPrice": "0.03",
+  "setupPrice": "3.40",
+  "currency": "U$"
 }
 ```
 
-## The second task, displaying the numbers in the UI
+Another hint, as you should have noticed, is that your team is international,
+so do your best trying to code in English.
+(Or did you think I was just a fancy challenge written in English by Brazilians for no reason?)
 
-- Use React to display the list (both the phone number and their cost).
-- The default amount of numbers per page will be 100. You decide if the user gets to change this value or not.
-- The data is paginated. the user needs to be able to navigate between pages (going to the next and to the previous is enough).
-- Use Redux to manage the application state.
-- The UI should not allow the user to perform actions that wouldn't work. I.E.: The 'previous page' button should be disabled if the page being displayed is the first one.
-- The UI should not allow the user to perform actions that would cancel an ongoing API request.
-- You can use any CSS method/framework you want.
+### Extra features
 
-## What will be evaluted in the test
+Nobody it's expecting it. 💅 But it will be nice to see:
 
-- Your ability to write modern and idiomatic Javascript
-- Your ability to mock API endpoints
-- Your ability to solve problems with logic (by implementing the dynamic data mock)
-- Your ability to sync the UI state with the application state
-- Your ability to create UIs with a minimum aesthetic appeal.
+- a state persistence for the mocked management, like Local Storage;
+- a safe way to keep the listed numbers updated, like a polling; and/or
+- automated tests of any kind.
+
+Just don't overengineer it too much. Keep it simple. And don't try to rob product management role!
+
+### Points of interest
+
+It all depends of the level of seniority you're applying to, of course. But our main observations are:
+
+- general computing knowledge;
+- your approach to problems;
+- how you're architecting the JSX components, state tree, file modules;
+- basic (again, _basic_) UX details like:
+  - responsive UI,
+  - reactive state machine letting the user know what's happening all the time,
+  - preventing users of doing dangerous operations, and
+  - acessiblity issues;
+- care with resource leaks;
+- consistent programming paradigm usage;
+- modern and idiomatic JavaScript;
+- good patterns of React and Redux;
+- thinking twice before introducing a new dependency;
+- experience with RESTful APIs consumption; and
+- good usage of Bootstrap or any other adjacent CSS tool, like Sass preprocessor or Styled Components.
+
+Feel free to use any boilerplate, but consider we'll be using Node 12, `npm i` and `npm start` for testing (also `npm t` in case you write tests).
+
+And we don't care about Internet Explorer that much.
+
+Be cool and happy coding!
